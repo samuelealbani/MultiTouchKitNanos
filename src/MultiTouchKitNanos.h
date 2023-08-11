@@ -11,8 +11,8 @@
  MIT license, all text above must be included in any redistribution
  ****************************************************/
 
-#ifndef MULTITOUCHKIT_H
-#define MULTITOUCHKIT_H
+#ifndef MULTITOUCHKITNANOS_H
+#define MULTITOUCHKITNANOS_H
 
 #include <Arduino.h>
 
@@ -25,7 +25,7 @@
 
 
 
-class MultiTouchKit
+class MultiTouchKitNanos
 {
   private:
     // Dimensions
@@ -46,7 +46,7 @@ class MultiTouchKit
 
   public:
     // Prototypes
-    MultiTouchKit();
+    MultiTouchKitNanos();
 
     // Setup
     void setup_sensor(int rx, int tx, int* muxPins, bool raw_data, int threshold);
@@ -55,4 +55,4 @@ class MultiTouchKit
     void read();
 };
 
-#endif //MULTITOUCHKIT_H
+#endif //MULTITOUCHKITNANOS_H

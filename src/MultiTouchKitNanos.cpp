@@ -12,9 +12,9 @@
  ****************************************************/
 
 
-#include "MultiTouchKit.h"
+#include "MultiTouchKitNanos.h"
 
-MultiTouchKit::MultiTouchKit(void){
+MultiTouchKitNanos::MultiTouchKitNanos(void){
 }
 
 /**
@@ -22,7 +22,7 @@ MultiTouchKit::MultiTouchKit(void){
 *
 *   @return void
 */
-void MultiTouchKit::setup_sensor(int rx, int tx, int* muxPins, bool raw_data, int threshold){
+void MultiTouchKitNanos::setup_sensor(int rx, int tx, int* muxPins, bool raw_data, int threshold){
     this->_numRx = rx;
     this->_numTx = tx;
     this->_muxPins = muxPins;
@@ -60,7 +60,7 @@ void MultiTouchKit::setup_sensor(int rx, int tx, int* muxPins, bool raw_data, in
 *
 *   @return void
 */
-void MultiTouchKit::read(){
+void MultiTouchKitNanos::read(){
     if (Serial){
         if(_raw_data == true){
             for (int i=0; i < this->_numTx; i++){
@@ -99,7 +99,7 @@ void MultiTouchKit::read(){
  *
  *   @return void
  */
-void MultiTouchKit::selectChannelOut(int channel) {
+void MultiTouchKitNanos::selectChannelOut(int channel) {
     int r0 = channel & 1;
     int r1 = channel & 2;
     int r2 = channel & 4;
@@ -116,7 +116,7 @@ void MultiTouchKit::selectChannelOut(int channel) {
  *
  *   @return void
  */
-void MultiTouchKit::setupPWM(){
+void MultiTouchKitNanos::setupPWM(){
 
     #if defined(ARDUINO_AVR_UNO)
         #define BOARD "Uno"
@@ -132,7 +132,7 @@ void MultiTouchKit::setupPWM(){
         analogReference(INTERNAL);         //change reference to 1.1V
 
     #elif defined(ARDUINO_AVR_NANO)
-        define BOARD "Nano"
+        #define BOARD "Nano"
         ////------------- Setup for Arduino Uno ---------
         pinMode(3, OUTPUT);      // Timer02 output pin
     
